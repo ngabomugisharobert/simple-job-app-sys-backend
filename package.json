@@ -5,7 +5,7 @@
   "description": "Exercise 2 - Simple job application system",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "node src/server.js"
   },
   "author": "Robert Ngabo Mugisha",
   "license": "ISC",
