@@ -35,6 +35,7 @@ exports.create = async (req, res) => {
 
 //get all applications
 exports.getAll = async (req, res) => {
+    console.log("(@@@@@@@@@@@@@@")
     try {
         await Application.getAll()
             .then(results => {
