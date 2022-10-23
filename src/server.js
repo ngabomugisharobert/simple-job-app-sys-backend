@@ -26,6 +26,7 @@ app.get("/*", function (req, res) {
 
 app.use('/api/v1', router);
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000')
-})
+
+const PORT = process.env.PORT || 9000
+
+app.listen(PORT, console.log(`Listening on ${PORT}`))
