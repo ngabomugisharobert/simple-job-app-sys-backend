@@ -21,7 +21,7 @@ exports.create = async (firstName, lastName, email, phoneNumber, address, dob, c
 // get all applications
 exports.getAll = async () => {
     try {
-        return await Application.find();
+        return await Application.find().sort([firstName,1]);
     } catch (error) {
         throw error;
     }
