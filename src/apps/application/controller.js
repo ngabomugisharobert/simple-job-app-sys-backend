@@ -14,11 +14,10 @@ exports.create = async (req, res) => {
             address,
             dob,
             cv,
-            coverLetter
 
         } = req.body;
 
-        await Application.create(capitalizeFirstLetter(firstName), capitalizeFirstLetter(lastName), email, phoneNumber, address, dob, cv, coverLetter)
+        await Application.create(capitalizeFirstLetter(firstName), capitalizeFirstLetter(lastName), email, phoneNumber, address, dob, cv)
             .then(results => {
                 Response.Success(res, 200, "created successfully", results);
             })

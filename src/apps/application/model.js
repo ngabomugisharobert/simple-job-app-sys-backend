@@ -8,7 +8,6 @@ const applicationSchema = new mongoose.Schema({
     phoneNumber: String,
     address: String,
     dob: String,
-    coverLetter: String,
     cv: {
         fileType: String,
         file: String

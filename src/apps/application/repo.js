@@ -1,6 +1,6 @@
 const Application = require('./model')
 
-exports.create = async (firstName, lastName, email, phoneNumber, address, dob, cv, coverLetter) => {
+exports.create = async (firstName, lastName, email, phoneNumber, address, dob, cv) => {
     try {
         const newApplication = new Application({
             firstName,
@@ -9,8 +9,7 @@ exports.create = async (firstName, lastName, email, phoneNumber, address, dob, c
             phoneNumber,
             address,
             dob,
-            cv,
-            coverLetter
+            cv
         })
         await newApplication.save()
         return newApplication;
@@ -22,7 +21,7 @@ exports.create = async (firstName, lastName, email, phoneNumber, address, dob, c
 // get all applications
 exports.getAll = async () => {
     try {
-        return await Application.find();
+        return await Application.find().sort({ firstName: 1 });
     } catch (error) {
         throw error;
     }
