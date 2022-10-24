@@ -35,7 +35,6 @@ exports.create = async (req, res) => {
 
 //get all applications
 exports.getAll = async (req, res) => {
-    console.log("(@@@@@@@@@@@@@@")
     try {
         await Application.getAll()
             .then(results => {
@@ -74,11 +73,11 @@ exports.getById = async (req, res) => {
 }
 
 //update status
-exports.updateStatus = async (req, res) => {
+exports.updateStatus = (req, res) => {
     try {
         const id = req.params.id;
         const status = req.body.status;
-        await Application.updateStatus(id, status)
+        Application.updateStatus(id, status)
             .then(results => {
                 Response.Success(res, 200, "success", results);
             })
