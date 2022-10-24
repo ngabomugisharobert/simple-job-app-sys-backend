@@ -1,5 +1,6 @@
 const Application = require('./repo')
 const Response = require('../../utils/Responses')
+const capitalizeFirstLetter = require('../utils/capitalizer')
 
 
 
@@ -17,7 +18,7 @@ exports.create = async (req, res) => {
 
         } = req.body;
 
-        await Application.create(firstName, lastName, email, phoneNumber, address, dob, cv, coverLetter)
+        await Application.create(capitalizeFirstLetter(firstName), capitalizeFirstLetter(lastName), email, phoneNumber, address, dob, cv, coverLetter)
             .then(results => {
                 Response.Success(res, 200, "created successfully", results);
             })
