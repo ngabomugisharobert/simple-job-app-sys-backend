@@ -73,11 +73,11 @@ exports.getById = async (req, res) => {
 }
 
 //update status
-exports.updateStatus = (req, res) => {
+exports.updateStatus = async (req, res) => {
     try {
         const id = req.params.id;
         const status = req.body.status;
-        Application.updateStatus(id, status)
+        await Application.updateStatus(id, status)
             .then(results => {
                 Response.Success(res, 200, "success", results);
             })
