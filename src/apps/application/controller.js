@@ -1,6 +1,6 @@
 const Application = require('./repo')
 const Response = require('../../utils/Responses')
-const capitalizeFirstLetter = require('../utils/capitalizer')
+const capitalizeFirstLetter = require('../../utils/capitalizer')
 
 
 
