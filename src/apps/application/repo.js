@@ -39,9 +39,9 @@ exports.getById = async (id) => {
 
 
 //update status
-exports.updateStatus = async (id, status) => {
+exports.updateStatus = (id, status) => {
     try {
-        return await Application.findOneAndUpdate({ "_id": id }, { status });
+        return Application.findOneAndUpdate({ "_id": id }, { status });
     } catch (error) {
         throw error;
     }
