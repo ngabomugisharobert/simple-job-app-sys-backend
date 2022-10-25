@@ -10,13 +10,15 @@ const router = require('./router.js')
 const app = express()
 db();
 
+const user = require('./apps/auth/model')
+const application = require('./apps/auth/application')
 app.use(cors({
     origin: '*',
 }));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(fileUpload());
+// app.use(fileUpload());
 // app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
