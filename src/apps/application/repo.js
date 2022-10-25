@@ -8,10 +8,11 @@ const fetch = require("node-fetch");
 
 exports.create = async (firstName, lastName, email, phoneNumber, address, dob, cv) => {
 
+    console.log("^^^^^^^^^^^^^^", cv, "@@@@@@@@@@")
         const file_id = UUIDGenerator() + '.pdf';
         const url = await generateS3URL.generateS3URL(file_id);
         let formData = new FormData();
-        formData.append('file', cv.cv.data);
+    formData.append('file', cv.cvAttachment.data);
         console.log(formData, "formdata");
 
         const response = await fetch(url, { method: 'PUT', body: formData });

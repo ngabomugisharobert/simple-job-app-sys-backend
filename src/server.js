@@ -2,19 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const db = require('./config/db');
 const cors = require("cors");
-const user = require('./apps/auth/model')
 const parentDirectory = __dirname;
 const path = require("path");
 const fileUpload = require("express-fileupload");
 const router = require('./router.js')
 const app = express()
-app.use(cors({
-    origin: ['https://exer-2-simple-job-application.herokuapp.com/*','*'],
-}));
+app.use(cors());
 db();
 
 const user = require('./apps/auth/model')
-const application = require('./apps/auth/application')
+const application = require('./apps/application/model')
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -26,7 +23,8 @@ app.use(bodyParser.json())
 
 // app.use(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     // res.header("Access-Control-Allow-Headers",
+//     //     "Origin, X-Requested-With, Content-Type, Accept");
 //     next();
 // });
 // app.use('/static', express.static(path.join(parentDirectory, "/build/static")));
