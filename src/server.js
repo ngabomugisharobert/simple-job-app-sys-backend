@@ -1,5 +1,5 @@
 const express = require('express');
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const db = require('./config/db');
 const cors = require("cors");
 const parentDirectory = __dirname;
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(cors());
 

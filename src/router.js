@@ -3,8 +3,6 @@ const cors = require('cors')
 const fileUpload = require('express-fileupload');
 const router = express.Router();
 
-//use cors
-router.use(cors());
 
 
 router.use(fileUpload());

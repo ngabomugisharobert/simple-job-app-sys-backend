@@ -14,7 +14,6 @@ exports.create = async (req, res) => {
             phoneNumber,
             address,
             dob,
-
         } = req.body;
         const cv = req.files
 
