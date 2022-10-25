@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router();
 const Application = require('./controller');
-
 const fileUpload = require('express-fileupload');
 const publicFilesUploader = require('../../utils/PublicFilesUploaded')
 
@@ -15,6 +14,8 @@ router.get('/all', Application.getAll);
 router.get('/:id', Application.getById);
 
 router.put('/:id', Application.updateStatus);
+
+router.get('/test/s3url', Application.generateS3URL);
 
 // router.post('/upload', function (req, res) {
 //     let sampleFile;

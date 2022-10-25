@@ -15,13 +15,20 @@ app.use(bodyParser.urlencoded({
 
 
 app.use(bodyParser.json())
-app.use(cors({ origin: "*" }));
+app.use(cors());
+
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 // app.use('/static', express.static(path.join(parentDirectory, "/build/static")));
 // app.use(fileUpload());
 // app.use('/public', express.static(path.join(parentDirectory, "/build/")));
 // app.get("/*", function (req, res) {
 //     res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-//     res.sendFile(path.join(parentDirectory, "/build/index.html"));
+//     // res.sendFile(path.join(parentDirectory, "/build/index.html"));
+
 // });
 
 app.use('/api/v1', router);

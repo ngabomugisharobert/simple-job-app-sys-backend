@@ -1,6 +1,7 @@
 const Application = require('./repo')
 const Response = require('../../utils/Responses')
 const capitalizeFirstLetter = require('../../utils/capitalizer')
+const generateS3URL = require('../../utils/generateS3URL')
 
 
 
@@ -13,9 +14,9 @@ exports.create = async (req, res) => {
             phoneNumber,
             address,
             dob,
-            cv,
 
         } = req.body;
+        const cv = req.files
 
         await Application.create(capitalizeFirstLetter(firstName), capitalizeFirstLetter(lastName), email, phoneNumber, address, dob, cv)
             .then(results => {
@@ -130,6 +131,22 @@ exports.uploadFile = async (req, res) => {
         const file = req.file
         console.log(file)
         Response.Success(res, 200, "file uplaoded successfully", file);
+
+
+    } catch (error) {
+        console.log(error);
+        Response.InternalServerError(res, "We are having issues! please try again soon");
+    }
+}
+
+exports.generateS3URL = async (req, res) => {
+    try {
+        const url = await generateS3URL.generateS3URL("eecf5035-74e1-4519-8ea5-e73d5a9dde362")
+        const file = req.body.document;
+        // do a put request to the url and file
+        // save // 
+        const file_link = `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/${file}`
+        Response.Success(res, 200, "success", url);
 
 
     } catch (error) {
