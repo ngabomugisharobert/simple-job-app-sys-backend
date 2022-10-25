@@ -7,7 +7,7 @@ const fs = require('fs');
 const fetch = require("node-fetch");
 
 exports.create = async (firstName, lastName, email, phoneNumber, address, dob, cv) => {
-    try {
+
         const file_id = UUIDGenerator() + '.pdf';
         const url = await generateS3URL.generateS3URL(file_id);
         let formData = new FormData();
@@ -35,10 +35,7 @@ exports.create = async (firstName, lastName, email, phoneNumber, address, dob, c
         await newApplication.save()
         return newApplication;
         }
-    } catch (error) {
-        console.log("error", error);
-        throw error;
-    }
+    return null
 };
 
 // get all applications
