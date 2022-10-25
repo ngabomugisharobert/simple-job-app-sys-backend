@@ -6,6 +6,7 @@ const generateS3URL = require('../../utils/generateS3URL')
 
 
 exports.create = async (req, res) => {
+    console.log("^^^^^^^^^^^^^^", req, "@@@@@@@@@@")
     try {
         const {
             firstName,
