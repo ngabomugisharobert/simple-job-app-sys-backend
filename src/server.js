@@ -8,13 +8,14 @@ const path = require("path");
 const fileUpload = require("express-fileupload");
 const router = require('./router.js')
 const app = express()
+app.use(cors({
+    origin: ['https://exer-2-simple-job-application.herokuapp.com/*','*'],
+}));
 db();
 
 const user = require('./apps/auth/model')
 const application = require('./apps/auth/application')
-app.use(cors({
-    origin: '*',
-}));
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
